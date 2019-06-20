@@ -53,7 +53,19 @@ or like this
     {:email email}))
 ```
 
-It also works with regular exceptions as well
+It will still throw on exceptions if the identifier you specify isn't the same
+
+```clojure
+(error/rescue
+  (error/raise "error" :error)
+  :error1)
+
+; :error1 does not match :error so this exception will be called
+
+(throw (ex-info "error.core/raise" {:error.core/e "error" :error.core/id :error}))
+```
+
+It also works with regular exceptions with `try*`
 
 ```clojure
 (defn validate-email [email]
@@ -66,3 +78,23 @@ It also works with regular exceptions as well
     {:error/email (.getMessage e)}
     {:email email}))
 ```
+
+## Testing
+
+```sh
+git clone ...
+cd error
+make test
+```
+
+## License
+
+MIT
+
+## Contribution
+
+Any and all issues or pull requests welcome!
+
+## Too Small
+
+This library is really small, it's true. Too small? Could be.

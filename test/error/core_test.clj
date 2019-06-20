@@ -4,6 +4,12 @@
   (:import (clojure.lang ExceptionInfo)))
 
 
+(defn validate-email [email]
+  (if (re-matches #".+@.+\..+" email)
+    email
+    (error/raise (str "Please enter a valid email address, not " email))))
+
+
 (deftest raise-test
   (testing "raise with one argument"
     (is (thrown? ExceptionInfo (error/raise "an error"))))
@@ -44,3 +50,13 @@
                     (second
                       (error/try*
                        (throw (Exception. "error")))))))))
+
+
+(deftest readme-test
+  (testing "readme example 1"
+    (is (= [nil "Please enter a valid email address, not not an email"]
+           (error/rescue (validate-email "not an email")))))
+
+  (testing "success readme example 1"
+    (is (= ["email@email.com" nil]
+           (error/rescue (validate-email "email@email.com"))))))
