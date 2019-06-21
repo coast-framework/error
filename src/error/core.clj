@@ -32,6 +32,6 @@
   "try* is the same as rescue except it catches any Exception"
   [f]
   `(try
-     ~f
+     [~f nil]
      (catch Exception e#
        [nil e#])))

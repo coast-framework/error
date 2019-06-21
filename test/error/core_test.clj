@@ -52,7 +52,17 @@
     (is (= "error" (.getMessage
                     (second
                       (error/try*
-                       (throw (Exception. "error")))))))))
+                       (throw (Exception. "error"))))))))
+
+  (testing "try* without an exception should return a vector"
+    (is (true? (vector?
+                 (error/try*
+                   "hello world")))))
+
+  (testing "try* without an exception should return a vector with two elements"
+    (is (= 2 (count
+               (error/try*
+                  "hello world"))))))
 
 
 (deftest readme-test
