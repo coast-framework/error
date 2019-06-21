@@ -7,5 +7,4 @@ repl:
 	clj -A\:repl
 
 deploy: test
-	clj -Spom
 	mvn deploy
