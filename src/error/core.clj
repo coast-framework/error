@@ -6,7 +6,9 @@
   ([e]
    (raise e true))
   ([e id]
-   (throw (ex-info "error.core/raise" {::e e ::id id}))))
+   (if (string? e)
+     (throw (ex-info e {::e e ::id id}))
+     (throw (ex-info "error.core/raise" {::e e ::id id})))))
 
 
 (defmacro rescue

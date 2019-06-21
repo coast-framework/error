@@ -14,8 +14,11 @@
   (testing "raise with one argument"
     (is (thrown? ExceptionInfo (error/raise "an error"))))
 
-  (testing "raise with one argument checking for the error message"
-    (is (thrown-with-msg? ExceptionInfo #"error.core/raise" (error/raise "an error"))))
+  (testing "raise with one string argument checking for the error message"
+    (is (thrown-with-msg? ExceptionInfo #"an error" (error/raise "an error"))))
+
+  (testing "raise with one non-string argument checking for the error message"
+    (is (thrown-with-msg? ExceptionInfo #"error.core/raise" (error/raise :not-a-string))))
 
   (testing "raise with two args"
     (try

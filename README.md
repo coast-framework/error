@@ -60,9 +60,8 @@ It will still throw on exceptions if the identifier you specify isn't the same
   (error/raise "error" :error)
   :error1)
 
-; :error1 does not match :error so this exception will be called
-
-(throw (ex-info "error.core/raise" {:error.core/e "error" :error.core/id :error}))
+; :error1 != :error so the following exception will be called
+(throw (ex-info "error" {:error.core/e "error" :error.core/id :error}))
 ```
 
 It also works with regular exceptions with `try*`
