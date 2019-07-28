@@ -1,5 +1,5 @@
 # error
-easy clojure error handling
+Easy clojure error handling
 
 ## Installation
 
