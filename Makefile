@@ -6,5 +6,5 @@ test:
 repl:
 	clj -A\:repl
 
-deploy: test
+release: test
 	mvn deploy
