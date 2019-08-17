@@ -3,10 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>coast-framework</groupId>
   <artifactId>error</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <name>error</name>
-  <description>Easy clojure error handling</description>
-  <url>https://github.com/coast-framework/error</url>
 
   <dependencies>
     <dependency>
@@ -18,6 +16,11 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>src</directory>
+      </resource>
+    </resources>
   </build>
 
   <repositories>
@@ -34,6 +37,9 @@
       <url>https://clojars.org/repo</url>
     </repository>
   </distributionManagement>
+
+  <description>Easy clojure error handling</description>
+  <url>https://github.com/coast-framework/error</url>
 
   <licenses>
     <license>
