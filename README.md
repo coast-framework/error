@@ -8,7 +8,7 @@ Make your `deps.edn` look like this:
 ```clojure
 ; ... paths probably
 
-{:deps {coast-framework/error {:mvn/version "1.0.1"}}}
+{:deps {coast-framework/error {:mvn/version "1.0.2"}}}
         ;... your other libraries}}
 
 ; ... rest of deps.edn
